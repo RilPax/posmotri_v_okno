@@ -16,6 +16,9 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -47,17 +50,10 @@ ol {
   white-space: nowrap;
 }
 
-.page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
 .content {
   display: flex;
   max-width: 1140px;
-  max-height: 534px;
+  min-height: 534px;
   gap: 30px;
   align-items: end;
 }
@@ -115,8 +111,7 @@ ol {
   line-height: 21.6px;
   text-align: left;
   width: 225px;
-  height: 54px;
-  gap: 5px;
+  min-height: 54px;
   gap: 5px;
   border: none;
 }
@@ -144,6 +139,7 @@ ol {
   font-weight: inherit;
   line-height: inherit;
   color: #fff;
+  appearance: none;
 }
 
 .search-form__textfield:active {
@@ -151,11 +147,7 @@ ol {
   border-right: 1px solid #fff;
 }
 
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__textfield:focus-visible {
+.search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
   outline-offset: 2px;
 }
@@ -179,50 +171,48 @@ ol {
   background-color: #fff;
 }
 
-.search-form__label:has(.search-form__checkbox:focus-visible) {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
-}
-
-.search-form__submit-button {
-  width: 194px;
-  height: 34px;
+.button {
+  min-height: 34px;
   background-color: transparent;
   border: 1px solid #fff;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
   text-align: center;
   color: #fff;
-  margin-top: auto;
-  margin-bottom: 3px;
 }
 
-.search-form__submit-button:active {
+.button:active {
   background-color: rgba(84, 80, 80, 1);
 }
 
-.search-form__submit-button:hover {
+.button:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
   cursor: pointer;
 }
 
-.search-form__submit-button:focus {
+.button:focus {
   outline: none;
 }
 
-.search-form__submit-button:focus-visible {
+.button:focus-visible {
   outline: 1px solid #fff;
   outline-offset: 2px;
+}
+
+.search-form__submit-button {
+  width: 194px;
+  margin-top: auto;
+  margin-bottom: 3px;
 }
 
 
 .content__details {
   max-width: 399px;
-  height: 534px;
+  min-height: 534px;
   display: flex;
   flex-direction: column;
   gap: 26px;
@@ -237,7 +227,6 @@ ol {
   text-transform: uppercase;
 }
 
-
 .content__accent {
   color: #545050
 }
@@ -245,8 +234,8 @@ ol {
 .content__list {
   position: relative;
   width: 423px;
-  overflow: scroll;
-  overflow-x: hidden;
+  height: 298px;
+  overflow: auto;
   padding: 3px;
 }
 
@@ -257,8 +246,10 @@ ol {
 .content__card-link {
   display: inline-block;
   width: 100%;
-  height: ;
   text-decoration: none;
+}
+.content__card-link:active {
+  background-color: rgba(84, 80, 80, 1);
 }
 
 .content__card-link:hover {
@@ -278,31 +269,20 @@ ol {
   outline-offset: 2px;
 }
 
+.content__card-link_current {
+  background-color: #545050;
+}
+
+
 .content__video-card {
   display: flex;
   align-items: start;
 }
 
-.content__video-card:hover {
-  cursor: pointer;
-}
-
-.content__video-card:active {
-  background-color: rgba(84, 80, 80, 1);
-}
-
-.content__video-card:focus {
-  outline: none;
-}
-
-.content__video-card:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
-}
-
 .content__video-card-thumbnail {
   width: 194px;
   height: 103px;
+  object-fit: cover;
 }
 
 .content__video-card-description-container {
@@ -333,33 +313,4 @@ ol {
 
 .more-button {
   width: 100%;
-  height: 34px;
-  background-color: transparent;
-  border: 1px solid #fff;
-  font-family: 'Fira Sans Condensed';
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 21.6px;
-  text-align: center;
-  color: #fff;
-}
-
-.more-button:active {
-  background-color: rgba(84, 80, 80, 1);
-}
-
-.more-button:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  cursor: pointer;
-}
-
-.more-button:focus {
-  outline: none;
-}
-
-.more-button:focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 2px;
 }
